@@ -1,0 +1,52 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+.navbar-brand img {
+    max-height: 6em;
+    margin: 1em;
+}
+
+body {
+    font-size: 3.5em;
+}
+
+p {
+    font-size: .8em;
+}
+
+h1 {
+    font-size: 1em;
+}
+ h2 {
+    font-size: .8em;
+ }
+
+ h3 {
+    font-size: .6em;
+ }
+
+    h4 {
+        font-size: .4em;
+    }
+
+    h5 {
+        font-size: .2em;
+    }
+
+small {
+    font-size: .6em;
+}
+
+.searchbar {
+    font-size: .75em;
+    padding: 0.5em;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.list-group-item {
+    border-bottom: 1px solid #1c1c1c;
+}
+
+:root, [data-bs-theme=light], [data-bs-theme=dark] {
+    --bs-primary: #29abe2 !important;
+    --bs-primary-rgb: 41, 171, 226;
+}
