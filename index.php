@@ -1,4 +1,5 @@
 <?php
+include 'includes/db.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,14 +12,41 @@
 </head>
 <body>
     <?php include_once 'includes/navbar.php'; ?>
-    <input class="form-control searchbar" name="search" id="search" type="text" placeholder="Zoek op naam of locatie..." aria-label="Zoeken">
+    <input class="form-control searchbar" name="search" id="search" type="text" placeholder="Zoek op naam, plaatsnaam of code" aria-label="Zoeken">
     <div class="container-fluid">
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action"><span class="badge bg-secondary fs-1">3727251</span> <b>Veehouder Janssen</b>
-                <i class="bi bi-arrow-right-circle-fill text-primary float-end"></i><br><small class="text-secondary fst-italic">Batenburgsedijk 52, Lienden</small></a>
-            <a href="#" class="list-group-item list-group-item-action"><span class="badge bg-secondary fs-1">2883382</span> <b>Kip-, rund- en varkensboer Pieter Klaassema</b> <i class="bi bi-arrow-right-circle-fill text-primary float-end"></i><br><small class="text-secondary fst-italic">Strooiweg 203, Alphen aan den Rijn</small></a>
+        <div class="list-group mt-3">
+            <?php
+            $companies = getCompanies();
+
+            foreach ($companies as $company) {
+                echo '<a href="info.php?id=' . $company['companyid'] . '" class="list-group-item list-group-item-action"><span class="badge bg-secondary fs-1">' . $company['companyid'] . '</span> <b>' . $company['name'] . '</b>
+                <i class="bi bi-arrow-right-circle-fill text-primary float-end"></i><br><small class="text-secondary fst-italic">' . $company['address'] . ', ' . $company['place'] . '</small></a>';
+            }
+            ?>
         </div>
     </div>
+
+<script>
+    const search = document.getElementById('search');
+    search.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+
+        const companies = document.querySelectorAll('.list-group-item');
+        const companiesArray = Array.from(companies);
+
+        companiesArray.forEach((company) => {
+            const name = company.querySelector('b').textContent.toLowerCase();
+            const place = company.querySelector('small').textContent.toLowerCase();
+            const id = company.querySelector('span.badge').textContent.toLowerCase();
+
+            if (name.includes(searchString) || place.includes(searchString) || id.includes(searchString)) {
+                company.style.display = 'block';
+            } else {
+                company.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 </html>
 
