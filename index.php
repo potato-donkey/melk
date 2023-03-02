@@ -20,7 +20,7 @@ include 'includes/db.php';
 
             foreach ($companies as $company) {
                 echo '<a href="info.php?id=' . $company['companyid'] . '" class="list-group-item list-group-item-action"><span class="badge bg-secondary fs-1">' . $company['companyid'] . '</span> <b>' . $company['name'] . '</b>
-                <i class="bi bi-arrow-right-circle-fill text-primary float-end"></i><br><small class="text-secondary fst-italic">' . $company['address'] . ', ' . $company['place'] . '</small></a>';
+                <i class="bi bi-arrow-right-circle-fill text-primary float-end"></i><br><small class="text-secondary fst-italic">' . $company['address'] . ' in ' . $company['place'] . '</small></a>';
             }
             ?>
         </div>

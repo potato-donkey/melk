@@ -30,4 +30,17 @@ function getCompanyById($id) {
     }
     return $company;
 }
+
+function getImagesById($id) {
+    global $db;
+    $sql = "SELECT * FROM images WHERE companyid = " . $id;
+    $result = $db->query($sql);
+    $images = array();
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $images[] = $row;
+        }
+    }
+    return $images;
+}
 ?>
