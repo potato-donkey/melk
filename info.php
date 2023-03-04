@@ -1,4 +1,5 @@
 <?php
+include 'config.php';
 include 'includes/db.php';
 $id = $_GET['id'];
 if($id == null || !is_numeric($id)) {
@@ -14,9 +15,9 @@ if($company == null) {
 <html lang="nl">
 <head>
     <title><?= $company['name']; ?> | melk.</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/style.css">
+    <script src="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/js/bootstrap.bundle.min.js" defer></script>
     <meta viewport="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -35,7 +36,7 @@ if($company == null) {
         echo '<p class="text-secondary">Geen afbeeldingen</p>';
     } else {
         foreach ($images as $image) {
-            echo '<img src="' . $image['url'] . '" class="img-fluid">';
+            echo '<img src="' . $GLOBALS['links'] . $_SERVER['HTTP_HOST'] .'/assets/uploads/' . $image['url'] . '" class="img-fluid">';
         }
     }
     ?>

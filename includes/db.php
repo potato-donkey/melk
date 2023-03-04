@@ -1,5 +1,5 @@
 <?php
-include_once 'config.php';
+//include_once 'config.php';
 $db = mysqli_connect($GLOBALS['db_host'], $GLOBALS['db_user'], $GLOBALS['db_pass'], $GLOBALS['db_name']);
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
@@ -43,4 +43,41 @@ function getImagesById($id) {
     }
     return $images;
 }
-?>
+
+function getSystemMessage() {
+    global $db;
+    $sql = "SELECT * FROM sys";
+    $result = $db->query($sql);
+    $message = null;
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $message = $row['bannermessage'];
+        }
+    }
+    return $message;
+}
+
+function compareAdminPassword($password) {
+    global $db;
+    $sql = "SELECT * FROM sys";
+    $result = $db->query($sql);
+    $hash = null;
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $hash = $row['adminpass'];
+        }
+    }
+    return password_verify($password, $hash);
+}
+
+function addCompany($code, $name, $address, $city, $description) {
+    global $db;
+    $sql = "INSERT INTO companies (companyid, name, address, place, notes) VALUES ('" . $code . "', '" . $name . "', '" . $address . "', '" . $city . "', '" . $description . "')";
+    $db->query($sql);
+}
+
+function deleteCompany($id) {
+    global $db;
+    $sql = "DELETE FROM companies WHERE companyid = " . $id;
+    $db->query($sql);
+}

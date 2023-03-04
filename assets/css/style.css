@@ -46,6 +46,14 @@ small {
     border-bottom: 1px solid #1c1c1c;
 }
 
+.fs-1em {
+    font-size: 1em;
+}
+
+html {
+    overflow-x: hidden;
+}
+
 :root, [data-bs-theme=light], [data-bs-theme=dark] {
     --bs-primary: #29abe2 !important;
     --bs-primary-rgb: 41, 171, 226;

@@ -1,17 +1,19 @@
 <?php
+include 'config.php';
 include 'includes/db.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
     <title>melk.</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/style.css">
+    <script src="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/js/bootstrap.bundle.min.js" defer></script>
     <meta viewport="width=device-width, initial-scale=1">
 </head>
 <body>
     <?php include_once 'includes/navbar.php'; ?>
+    <?php include_once 'includes/banner.php'; ?>
     <input class="form-control searchbar" name="search" id="search" type="text" placeholder="Zoek op naam, plaatsnaam of code" aria-label="Zoeken">
     <div class="container-fluid">
         <div class="list-group mt-3">
