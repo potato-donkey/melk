@@ -21,9 +21,9 @@ if(isset($_SESSION['loggedin'])  && $_SESSION['loggedin'] = false) {
 
 <head>
     <title>administratie | melk.</title>
-    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/style.css">
-    <script src="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="<?= $GLOBALS['protocol'] . $_SERVER['HTTP_HOST']; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['protocol'] . $_SERVER['HTTP_HOST']; ?>/assets/css/style.css">
+    <script src="<?= $GLOBALS['protocol'] . $_SERVER['HTTP_HOST']; ?>/assets/js/bootstrap.bundle.min.js" defer></script>
     <meta viewport="width=device-width, initial-scale=1">
 </head>
 
@@ -96,7 +96,7 @@ if(isset($_SESSION['loggedin'])  && $_SESSION['loggedin'] = false) {
 
     function confirmDelete(url) {
         if (confirm("Weet je zeker dat je dit bedrijf (en alle bijbehorende afbeeldingen) wilt verwijderen?")) {
-            window.location.href = "<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST'] ?>/admin/" + url;
+            window.location.href = "<?= $GLOBALS['protocol'] . $_SERVER['HTTP_HOST'] ?>/admin/" + url;
         }
     }
     </script>

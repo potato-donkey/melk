@@ -6,9 +6,9 @@ include 'includes/db.php';
 <html lang="nl">
 <head>
     <title>melk.</title>
-    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/css/style.css">
-    <script src="<?= $GLOBALS['links'] . $_SERVER['HTTP_HOST']; ?>/assets/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="<?= $GLOBALS['protocol'] . $_SERVER['HTTP_HOST']; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $GLOBALS['protocol'] . $_SERVER['HTTP_HOST']; ?>/assets/css/style.css">
+    <script src="<?= $GLOBALS['protocol'] . $_SERVER['HTTP_HOST']; ?>/assets/js/bootstrap.bundle.min.js" defer></script>
     <meta viewport="width=device-width, initial-scale=1">
 </head>
 <body>
