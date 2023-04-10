@@ -78,6 +78,14 @@ function addCompany($code, $name, $address, $city, $description) {
 
 function deleteCompany($id) {
     global $db;
-    $sql = "DELETE FROM companies WHERE companyid = " . $id;
+    $sql1 = "DELETE FROM images WHERE companyid = " . $id;
+    $db->query($sql1);
+    $sql2 = "DELETE FROM companies WHERE companyid = " . $id;
+    $db->query($sql2);
+}
+
+function addImage($company, $image) {
+    global $db;
+    $sql = "INSERT INTO images (companyid, url, uploaded) VALUES (" . $company . ", '" . $image . "', NOW())";
     $db->query($sql);
 }
